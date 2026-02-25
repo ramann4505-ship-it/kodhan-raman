@@ -1,0 +1,26 @@
+program TreeGrowthSimulation;
+uses crt;
+
+var
+  height, days, i: integer;
+  growth: real;
+
+begin
+  clrscr;
+  writeln('=== Tree Growth Simulation ===');
+  
+  height := 0;
+  
+  writeln('Enter number of days to simulate: ');
+  readln(days);
+  
+  for i := 1 to days do
+  begin
+    growth := random(3) + 1;  { Random growth between 1 and 3 units per day }
+    height := height + trunc(growth);
+    writeln('Day ', i, ': Tree height = ', height, ' units');
+  end;
+  
+  writeln('Simulation finished! Final tree height: ', height, ' units');
+  readln;
+end.
