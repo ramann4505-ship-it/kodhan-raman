@@ -1,0 +1,76 @@
+import java.util.Scanner;
+import java.util.Random;
+
+class Car {
+    boolean engineBroken;
+    boolean tiresBroken;
+    boolean brakesBroken;
+
+    public Car() {
+        Random rand = new Random();
+        engineBroken = rand.nextBoolean();
+        tiresBroken = rand.nextBoolean();
+        brakesBroken = rand.nextBoolean();
+    }
+
+    public boolean isBroken() {
+        return engineBroken || tiresBroken || brakesBroken;
+    }
+
+    public void repair(String part) {
+        switch(part.toLowerCase()) {
+            case "engine":
+                if(engineBroken) {
+                    engineBroken = false;
+                    System.out.println("Engine repaired!");
+                } else {
+                    System.out.println("Engine is already fine.");
+                }
+                break;
+            case "tires":
+                if(tiresBroken) {
+                    tiresBroken = false;
+                    System.out.println("Tires repaired!");
+                } else {
+                    System.out.println("Tires are already fine.");
+                }
+                break;
+            case "brakes":
+                if(brakesBroken) {
+                    brakesBroken = false;
+                    System.out.println("Brakes repaired!");
+                } else {
+                    System.out.println("Brakes are already fine.");
+                }
+                break;
+            default:
+                System.out.println("Unknown part. Try engine, tires, or brakes.");
+        }
+    }
+
+    public void showStatus() {
+        System.out.println("\nCar Status:");
+        System.out.println("Engine: " + (engineBroken ? "Broken" : "OK"));
+        System.out.println("Tires: " + (tiresBroken ? "Broken" : "OK"));
+        System.out.println("Brakes: " + (brakesBroken ? "Broken" : "OK"));
+    }
+}
+
+public class CarRepairGame {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        Car myCar = new Car();
+
+        System.out.println("=== Welcome to Car Repair Simulation Game ===");
+
+        while(myCar.isBroken()) {
+            myCar.showStatus();
+            System.out.print("\nWhich part do you want to repair? (engine/tires/brakes): ");
+            String part = sc.nextLine();
+            myCar.repair(part);
+        }
+
+        System.out.println("\nCongratulations! Your car is fully repaired 🚗✨");
+        sc.close();
+    }
+}
