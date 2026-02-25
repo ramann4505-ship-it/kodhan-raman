@@ -1,0 +1,36 @@
+import webbrowser
+import time
+
+print("=== SHAFT FORGING SIMULATION GAME ===")
+print("Your task: Forge a strong steel shaft by choosing correct steps!\n")
+
+steps = [
+    "Select raw steel material (choose quality grade)",
+    "Heat the billet to forging temperature",
+    "Hammer/press the heated steel to shape",
+    "Cool the shaft gradually",
+    "Test mechanical properties (strength/hardness)"
+]
+
+images = [
+    "https://www.google.com/search?q=raw+steel+billet+forge&tbm=isch",
+    "https://www.google.com/search?q=hot+steel+forging+furnace&tbm=isch",
+    "https://www.google.com/search?q=forging+press+hammer+steel&tbm=isch",
+    "https://www.google.com/search?q=cooling+forged+steel+process&tbm=isch",
+    "https://www.google.com/search?q=mechanical+testing+tensile+hardness+shaft&tbm=isch"
+]
+
+for i, step in enumerate(steps):
+    print(f"\nStep {i+1}: {step}")
+    print("Opening image examples for this step...")
+    webbrowser.open(images[i])
+    choice = input("Did you complete this step correctly? (yes/no): ").lower()
+    if choice != "yes":
+        print("Oops! The process failed here. Try again next time.")
+        break
+    time.sleep(1)
+else:
+    print("\n🎉 SUCCESS! You forged a high‑quality shaft!")
+    print("Forged parts are stronger and more durable due to controlled grain flow and deformation during forging, giving better mechanical properties than casting. :contentReference[oaicite:0]{index=0}")
+
+print("\nGame over! Thanks for playing!")
