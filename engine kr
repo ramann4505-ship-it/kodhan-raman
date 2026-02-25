@@ -1,0 +1,27 @@
+import webbrowser
+import time
+
+# Engine working steps and explanations
+engine_steps = [
+    "1️⃣ Intake Stroke: Air (and fuel in petrol engines) enters the cylinder as the piston moves down.",
+    "2️⃣ Compression Stroke: Piston moves up, compressing the air-fuel mixture (or air only in diesel).",
+    "3️⃣ Power Stroke: Spark ignites mixture (petrol) or compression ignites diesel; piston is pushed down.",
+    "4️⃣ Exhaust Stroke: Piston pushes out exhaust gases through the exhaust valve."
+]
+
+# Engine working videos (YouTube links)
+engine_videos = [
+    "https://www.youtube.com/watch?v=ZSkB3zrU8T4",  # 4-stroke animation
+    "https://www.youtube.com/watch?v=pwoiMWCwkXQ"   # IC engine explanation
+]
+
+print("=== ENGINE WORKING SIMULATION ===\n")
+
+for i, step in enumerate(engine_steps):
+    print(step)
+    time.sleep(1)  # small delay for readability
+    print("Opening a related video for this step...")
+    webbrowser.open(engine_videos[i % len(engine_videos)])
+    input("Press Enter to continue to the next step...\n")
+
+print("✅ Simulation complete! You now understand the basic working of an engine.")
